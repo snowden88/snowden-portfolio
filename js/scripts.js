@@ -82,12 +82,12 @@ for(var i = 0; i < works.length; ++i ) {
       <img class='img-responsive folio' src='" + works[i] + "'>\
     </div>\
   ");
-  var images = $("#work img");
-  if (i%2 === 0){
-    $(images[i]).css("border", "2px solid white")
-  } else {
-    $(images[i]).css("border", "2px solid white");
-  }
+  // var images = $("#work img");
+  // if (i%2 === 0){
+  //   $(images[i]).css("border", "2px solid white")
+  // } else {
+  //   $(images[i]).css("border", "2px solid white");
+  // }
 };
 
 }); //ends DOM ready scipts
