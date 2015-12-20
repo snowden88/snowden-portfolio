@@ -1,6 +1,6 @@
 var works = [
-  "img/example1.png",
-  "img/example2.png",
-  "img/example3.png",
-  "img/soon.jpg"
+  {title: "Evan Ayres Portfolio", pic: "img/example1.png", url:"http://evanayres.bitballoon.com"},
+  {title: "coming soon", pic: "img/soon.jpg", url:"http://google.com"},
+  {title: "coming soon", pic: "img/soon.jpg", url:"http://facebook.com"},
+  {title: "coming soon", pic: "img/soon.jpg", url:"http://twitter.com"}
 ]

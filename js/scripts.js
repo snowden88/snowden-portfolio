@@ -1,6 +1,22 @@
 //twitter Button
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
+function initMap() {
+  var myLatLng = {lat: 39.305678, lng: -77.8562204};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 9,
+    center: myLatLng,
+  });
+  
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World'  
+  });
+}
+
 //scripts to load when DOM is ready
 $(document).ready(function(){
   // Smooth scrolling
@@ -22,8 +38,8 @@ $(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip();
 	});
 
-  //textarea border color
-  $(".message-box").css("border", "2px solid black");
+  //textarea border color -stylistic change omitted
+  //$(".message-box").css("border", "2px solid black");
 
   //eventlistener for keystrokes in messagebox
   $(".message-box").on("keyup", function(){
@@ -79,15 +95,28 @@ $(document).ready(function(){
 for(var i = 0; i < works.length; ++i ) {
   $("#work").append("\
     <div class='col-sm-6 col-md-3'>\
-      <img class='img-responsive folio' src='" + works[i] + "'>\
+      <a href= "+ works[i].url +" class='work-img'>\
+      <img class='img-responsive' src='" + works[i].pic + "'>\
+      <span class='info'><p class='proj-title'>Title:</p>" + works[i].title + "</span>\
+      </a>\
     </div>\
   ");
-  // var images = $("#work img");
-  // if (i%2 === 0){
-  //   $(images[i]).css("border", "2px solid white")
-  // } else {
-  //   $(images[i]).css("border", "2px solid white");
-  // }
+  // border color changed by JS
+  var images = $("#work img");
+  if (i%2 === 0){
+    $(images[i]).css("border", "2px solid black")
+  } else {
+    $(images[i]).css("border", "2px solid white");
+  }
 };
 
+// event listener for work section
+$(".work-img").mouseenter( function() {
+  // used for testing console.log(this);
+  $(".info", this).show();
+}).mouseleave(function(){
+  $(".info", this).hide();
+});
+
 }); //ends DOM ready scipts
+
